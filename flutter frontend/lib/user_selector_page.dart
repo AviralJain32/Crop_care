@@ -1,5 +1,6 @@
 import 'package:crop_care/signup_page.dart';
 import 'package:flutter/material.dart';
+import './userAuthentication/loginPage.dart';
 class User extends StatelessWidget {
   const User({super.key});
 
@@ -50,7 +51,7 @@ class User extends StatelessWidget {
             ),
             GestureDetector(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> SignIn()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> SignInPage()));
               },
               child: Container(
                 height: imageSize,

@@ -1,13 +1,23 @@
+//3
+import 'package:crop_care/landing_page.dart';
 import 'package:flutter/material.dart';
 import 'signup_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import "package:jwt_decoder/jwt_decoder.dart";
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'user_selector_page.dart';
-
+import './userAuthentication/loginPage.dart';
 class Feature3 extends StatefulWidget {
+  final token;
+  const Feature3({
+    @required this.token,
+    Key? key,
+  }) : super(key: key);
   @override
   State<Feature3> createState() => _Feature3State();
 }
 class _Feature3State extends State<Feature3> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -524,7 +534,7 @@ class Sliding_pages extends StatelessWidget {
             ),
             child: GestureDetector(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => SignIn()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) =>(SignInPage())));
               },
               child: Container(
                 width: 70,

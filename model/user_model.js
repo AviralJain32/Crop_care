@@ -3,11 +3,10 @@ const db=require("../config/db");
 const {Schema} = mongoose;
 const bcrypt=require("bcrypt");
 const userSchema=new Schema({
-    email:{
-        type:String,
-        lowercase:true,
+    PhoneNumber:{
+        type:Number,
         required:true,
-        unique:true
+        unique:true, 
     },
     password:{
         type:String,

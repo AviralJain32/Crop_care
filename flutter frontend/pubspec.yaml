@@ -21,6 +21,11 @@ dependencies:
   google_nav_bar: ^5.0.6
   dialog_flowtter: ^0.3.3
   flutter_tts: ^3.8.3
+  velocity_x:
+  http:
+  shared_preferences:
+  jwt_decoder:
+  flutter_slidable:
 
 dev_dependencies:
   flutter_test:

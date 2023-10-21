@@ -1,8 +1,15 @@
+//1
+
 import 'dart:async';
+import 'package:crop_care/main.dart';
+
 import 'multilanguage_support.dart';
 import 'package:flutter/material.dart';
 
 class OpeningPage extends StatefulWidget {
+  final token;
+  // OpeningPage(token);
+  const OpeningPage({@required this.token, super.key});
   @override
   State<OpeningPage> createState() => _OpeningPageState();
 }
@@ -12,9 +19,11 @@ class _OpeningPageState extends State<OpeningPage> {
   void initState() {
     super.initState();
     Timer(Duration(seconds: 2), () {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => Language()));
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => Language()));
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

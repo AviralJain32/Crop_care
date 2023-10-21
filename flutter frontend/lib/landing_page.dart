@@ -3,12 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'chatbox/Messsages.dart';
 import 'scan_page/scan_backend.dart';
+import 'package:jwt_decoder/jwt_decoder.dart';
+
 class LandingPage extends StatefulWidget {
-    const LandingPage({super.key});
+    final token;//change
+    const LandingPage({@required this.token,super.key});//change
     @override
     State<LandingPage> createState() => _LandingPageState();
 }
 class _LandingPageState extends State<LandingPage> {
+  late int phoneNumber;//change
   void launchURL(String url) async {
     if (await canLaunchUrl(Uri.parse(url))) {
       await launchUrl(Uri.parse(url));
@@ -17,6 +21,15 @@ class _LandingPageState extends State<LandingPage> {
     }
   }
     @override
+    //change add init full
+    void initState() {
+    // TODO: implement initState
+    super.initState();
+    Map<String, dynamic> jwtDecodedToken = JwtDecoder.decode(widget.token);
+
+    phoneNumber = jwtDecodedToken["phoneNumber"];
+  }
+
     Widget build(BuildContext context) {
       return Scaffold(
         backgroundColor: Color(0xFFF3F2F2),

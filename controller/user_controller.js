@@ -3,9 +3,9 @@ const userService=require("../services/user_services");
 
 exports.register=async(req,res,next)=>{
     try{
-        const {email,password}=req.body;
+        const {PhoneNumber,password}=req.body;
         console.log(res);
-        const successRes=await userService.registerUser(email,password);
+        const successRes=await userService.registerUser(email,PhoneNumber);
 
         res.json({status:true,sucess:"user registered successfully"})
     }
@@ -16,9 +16,9 @@ exports.register=async(req,res,next)=>{
 
 exports.login=async(req,res,next)=>{
     try{
-        const {email,password}=req.body;
+        const {PhoneNumber,password}=req.body;
 
-        const user=await userService.checkUser(email);
+        const user=await userService.checkUser(PhoneNumber);
 
         if(!user){
             throw new Error('User Dont Exist');
@@ -29,7 +29,7 @@ exports.login=async(req,res,next)=>{
             throw new Error('Password InValid');
         }
 
-        let tokendata={_id:user._id,email:user.email};
+        let tokendata={_id:user._id,PhoneNumber:user.PhoneNumber};
 
         const token=await UserService.generateToken(tokendata,"secretKey","1h");
         res.status(200).json({status:true,token:token});
