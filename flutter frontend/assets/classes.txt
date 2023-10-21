@@ -1,0 +1,3 @@
+Corn__gray_leaf_spot
+Pepper_bell__bacterial_spot
+Strawberry__leaf_scorch
